@@ -59,19 +59,6 @@ public class SeamCarver {
 			}
 		}
 	}
-	// Unfinished, intended to check just the two seams affected by removing a seam.
-	//	private void updateEnergyMatrixHorizontal(int[] row) {
-	//		for (int col = 0; col < width; col++) {
-	//			energyMatrix.set(row[col] * width + col, energy(col, row[col]));
-	//		}
-	//	}
-
-	//	private void updateEnergyMatrixVertical(int[] col) {
-	//		for (int row = 0; row < height; row++) {
-	//			energyMatrix.set(row * width + col[row], energy(col[row], row));
-	//		}
-	//	}
-
 
 	public Picture picture() { // return current state of mutablePicture
 
@@ -351,7 +338,6 @@ public class SeamCarver {
 		}
 		width--;
 		picUpToDate = false;
-		//		updateEnergyMatrixVertical(seam);
 	} // end method verticalHelper
 
 	public void removeHorizontalSeam(int[] seam) { // Rows
@@ -392,6 +378,5 @@ public class SeamCarver {
 		}
 		height--;
 		picUpToDate = false;
-		//		updateEnergyMatrixHorizontal(seam);
 	}
 }
