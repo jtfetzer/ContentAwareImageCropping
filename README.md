@@ -1,2 +1,51 @@
-# ContentAwareImageCropping
-This program does content aware cropping, by removing seams of pixels. 
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="./Seam Carving_files/MathJax.js" id=""></script>
+
+  <title>
+    Seam Carving
+  </title>
+
+  <style type="text/css">
+    .content {
+      width: 90%;
+      margin-left: 5%;
+      text-align: left;
+    }
+
+    img {
+      margin: 1em;
+    }
+  </style>
+</head>
+
+<body>
+  <h2 class="content">Seam Carving</h2>
+  <p class="content"><br>Seam-carving is a content-aware image resizing technique where the image is reduced in size by
+    one pixel of height (or width) at a time. A <em>vertical seam</em> in an image is a path of pixels connected from
+    the top to the bottom with one pixel in each row. (A <em>horizontal seam</em> is a path of pixels connected from the
+    left to the right with one pixel in each column.) Below left is the original 505-by-287 pixel image;
+    below right is the result after removing 150 vertical seams,
+    resulting in a 30% narrower image. Unlike standard content-agnostic resizing techniques (e.g. cropping and scaling),
+    the most interesting features (aspect ratio, set of objects present, etc.) of the image are preserved. </p>
+  <p class="content">To determine which seams to remove,
+    an energy matrix is created which represents the change in RBG values between each pixel and its surrounding
+    neighbors. With this data structure,
+    a shortest paths search can be conducted and the seam with the lowest energy value (i.e. uninteresting content) is
+    removed. </p>
+  <p class="content">A naive solution,
+    perhaps representing the energy matrix and picture as 2-d arrays of values,
+    would require a running time of <em>O(n<sup>2</sup></em>) to remove a seam. My implementaion uses dynamic data
+    structures which, on average, remove seams in time of <em>O(n)</em>. </p>
+  <center><img src="./Seam Carving_files/HJoceanSmall.png" alt="Dr. Hug in the ocean"><img
+      src="./Seam Carving_files/HJoceanSmallVerticalSeam.png" alt="Vertical Seam"><img
+      src="./Seam Carving_files/HJoceanSmallShrunk.png" alt="Dr. Hug in the ocean"></center>
+  <p class="content">Despite the fact that the underlying algorithm is quite simple and elegant. The SeamCarver
+    technique was not discovered until 2007 by Shai Avidan and Ariel Shamir. It is now a feature in Adobe Photoshop,
+    as well as other popular computer graphics applications. </p>
+</body>
+
+</html>
